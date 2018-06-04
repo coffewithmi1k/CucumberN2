@@ -43,6 +43,7 @@ public class UserController {
 
     @Given("^LogIn Parameters$")
     public void login_Parameters() throws Exception {
+       request=
         RestAssured.given()
                 .headers("Content-Type", "application/x-www-form-urlencoded",
                         "Authorization", "Basic YmV0MTE6YmV0MTE=")
@@ -55,7 +56,7 @@ public class UserController {
     @When("^sends post logIn request$")
     public void sends_post_logIn_request() throws Exception {
         response = request.when().post("http://46.101.196.83/api/oauth/token").then().extract().response();
-        response.prettyPrint();
+        
     }
 
     @Then("^verifies user is logged In$")
